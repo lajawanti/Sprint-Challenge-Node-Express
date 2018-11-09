@@ -93,7 +93,36 @@ server.delete('/api/actions/:id', (request, response) => {
            })
 })
 
+/*****  PROJECTS and ACTIONS UPDATE *****/
+server.put('/api/projects/:id', (request, response) => {
+    const {name, description, completed} = request.body;
+        projectdb.update(request.params.id, request.body)
+              .then(count => {
+                  if(count) {
+                        response.status(200).json(count);
+                  } else {
+                        response.status(404).json({ message: "The project with the specified ID does not exist." })
+                  }
+               })
+              .catch(error => {
+                   response.status(500).json({ error: "The project information could not be modified." })
+               })
+})
 
+server.put('/api/actions/:id', (request, response) => {
+    const {project_id, notes, description, completed} = request.body;
+        actiondb.update(request.params.id, request.body)
+              .then(count => {
+                  if(count) {
+                        response.status(200).json(count);
+                  } else {
+                        response.status(404).json({ message: "The project with the specified ID does not exist." })
+                  }
+               })
+              .catch(error => {
+                   response.status(500).json({ error: "The project information could not be modified." })
+               })
+})
 
 server.listen(9000, () => {
     console.log("Server running on port 9000");
