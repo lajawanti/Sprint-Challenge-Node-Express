@@ -1,13 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 
 //database
 const actiondb = require('./data/helpers/actionModel.js');
 const projectdb = require('./data/helpers/projectModel.js');
 
+const server = express();
+server.use(express.json()); 
+server.use(cors());
+
 //config-- Middleware
 //const configureMiddleware = require('./config/middleware.js');
-const server = express();
-server.use(express.json()); // built in
 
 /*****  PROJECTS and ACTIONS  GET *****/
 server.get('/api/projects', (request, response) => {
