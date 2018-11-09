@@ -72,6 +72,27 @@ server.post('/api/actions', (request, response) => {
     }
 }) 
 
+/*****  PROJECTS and ACTIONS DELETE *****/
+server.delete('/api/projects/:id', (request, response) => {
+    projectdb.remove(request.params.id)
+          .then(count => {
+              response.status(200).json(count);
+           })
+          .catch(error => {
+              response.status(500).json({message : 'error deleting user'})
+           })
+})
+
+server.delete('/api/actions/:id', (request, response) => {
+    actiondb.remove(request.params.id)
+          .then(count => {
+              response.status(200).json(count);
+           })
+          .catch(error => {
+              response.status(500).json({message : 'error deleting user'})
+           })
+})
+
 
 
 server.listen(9000, () => {
