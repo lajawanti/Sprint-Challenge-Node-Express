@@ -124,6 +124,24 @@ server.put('/api/actions/:id', (request, response) => {
                })
 })
 
+//getProjectActions---
+server.get('/api/projects/:id/actions', (request, response) =>{
+     projectdb.getProjectActions(request.params.id)
+              .then(actions => {
+                    if(actions.length < 1) {
+                            response.status(404).json(`no action found for project  : ${request.params.name}`)
+                    }
+                    response.status(200).json(actions);
+               })
+              .catch(error => response.status(500).json(error));
+})
+
+
 server.listen(9000, () => {
     console.log("Server running on port 9000");
 })
+
+
+
+
+
