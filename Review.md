@@ -1,7 +1,8 @@
 # Review Questions
 
 ## What is Node.js?
--->     Node.js is a runtime environment, a platform used to execute JavaScript  applications outside the browser(like `create-react-app` which works outside browser. 
+-->     Node.js is a runtime environment, a platform used to execute JavaScript  applications outside the browser(like `create-react-app` which works 
+        outside browser. 
         Node is popular to build servers.
 
 ## What is Express?
@@ -12,7 +13,8 @@
         routing.
 
 ## What is Middleware?
--->     Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. 
+-->     Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in 
+        the application’s request-response cycle. 
         These functions are used to modify req and res objects for tasks like parsing request bodies, adding response headers, etc.
 
 ## What is a Resource?

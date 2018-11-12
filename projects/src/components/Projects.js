@@ -11,7 +11,7 @@ class Projects extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('http://localhost:9000/api/projects')
+        axios.get('http://localhost:9000/projects')
              .then(response => this.setState({projects : response.data}))
              .catch(error => console.log(error));
     }
